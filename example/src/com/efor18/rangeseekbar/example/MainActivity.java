@@ -33,6 +33,18 @@ public class MainActivity extends Activity {
                         max.setText(maxValue.toString());
                         
                 }
+
+                @Override
+                public void onStartTrackingTouch(RangeSeekBar<?> bar) {
+                    // TODO Auto-generated method stub
+                    
+                }
+
+                @Override
+                public void onStopTrackingTouch(RangeSeekBar<?> bar) {
+                    // TODO Auto-generated method stub
+                    
+                }
         });
 
         // add RangeSeekBar to pre-defined layout

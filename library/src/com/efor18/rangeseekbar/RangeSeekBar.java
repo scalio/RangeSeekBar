@@ -77,6 +77,10 @@ public class RangeSeekBar<T extends Number> extends ImageView {
 	public interface OnRangeSeekBarChangeListener<T> {
 		public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar,
 				T minValue, T maxValue);
+
+        public void onStartTrackingTouch(RangeSeekBar<?> bar);
+        
+        public void onStopTrackingTouch(RangeSeekBar<?> bar);
 	}
 
 	/**
@@ -510,7 +514,8 @@ public class RangeSeekBar<T extends Number> extends ImageView {
 	 * This is called when the user has started touching this widget.
 	 */
 	void onStartTrackingTouch() {
-		mIsDragging = true;
+	    listener.onStartTrackingTouch(this);
+	    mIsDragging = true;
 	}
 
 	/**
@@ -518,6 +523,7 @@ public class RangeSeekBar<T extends Number> extends ImageView {
 	 * canceled.
 	 */
 	void onStopTrackingTouch() {
+	    listener.onStopTrackingTouch(this);
 		mIsDragging = false;
 	}
 
